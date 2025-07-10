@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Maa Bhagwati Hostel offers affordable double sharing rooms, delicious meals, Wi-Fi, and RO water. Book your stay now!">
+    <meta name="keywords" content="Maa Bhagwati Hostel, affordable hostel, double sharing rooms, Wi-Fi hostel, RO water, budget stay">
+    <meta name="author" content="Maa Bhagwati Hostel">
+    <title>Maa Bhagwati Hostel - Cool & Affordable Stays</title>
+    <script src="https://cdn.jsdelivr.net/npm/react@17.0.2/umd/react.production.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@babel/standalone@7.20.15/babel.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <style>
+        html{
+            scroll-behavior: smooth;
+        }
+        body {
+            background: linear-gradient(135deg, #1e3a8a, #6b7280);
+            color: #1f2937;
+        }
+        .hero {
+            background: url('https://images.unsplash.com/photo-1522708323590-d24dbb6b0267') no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        .gallery-img {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .gallery-img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #f59e0b;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        .rates-table th, .rates-table td {
+            border: 1px solid #e5e7eb;
+            padding: 12px;
+            text-align: center;
+        }
+        .rates-table th {
+            background-color: #1e3a8a;
+            color: white;
+        }
+        .rates-table tr:nth-child(even) {
+            background-color: #f3f4f6;
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState, useEffect } = React;
+
+        // Navbar Component
+        const Navbar = () => {
+    const [isOpen, setIsOpen] = useState(false);
+
+    return (
+        <nav className="bg-gray-900 text-white fixed w-full z-20 shadow-lg">
+            <div className="container mx-auto px-4 py-4 flex justify-between items-center">
+                <div className="text-2xl font-bold tracking-wide">
+                    <a href="#home">Maa Bhagwati Boys Hostel</a>
+                </div>
+                <div className="md:hidden">
+                    <button onClick={() => setIsOpen(!isOpen)} className="focus:outline-none">
+                        <i className={isOpen ? "fas fa-times" : "fas fa-bars"}></i>
+                    </button>
+                </div>
+                <ul className={`md:flex space-x-8 ${isOpen ? 'block' : 'hidden'} md:block absolute md:static bg-gray-900 w-full md:w-auto left-0 md:left-auto md:top-auto top-16 p-4 md:p-0`}>
+                    {['Home', 'About', 'Rooms', 'Meals', 'Gallery', 'Contact'].map((item) => (
+                        <li key={item} className="md:py-0 py-2">
+                            <a 
+                                href={`#${item.toLowerCase()}`} 
+                                className="nav-link block text-lg hover:text-yellow-400 transition duration-300"
+                                onClick={() => setIsOpen(false)}
+                            >
+                                {item}
+                            </a>
+                        </li>
+                    ))}
+                </ul>
+            </div>
+        </nav>
+    );
+};
+
+        // Hero Component
+        const Hero = () => (
+            <section id="home" className="hero">
+                <div className="bg-black bg-opacity-50 p-8 rounded-xl fade-in">
+                    <h1 className="text-5xl font-extrabold mb-4">Maa Bhagwati Boys Hostel</h1>
+                    <p className="text-xl mb-6">Cool, affordable double sharing rooms with Wi-Fi, RO water, and tasty meals!</p>
+                    <a href="#contact" className="bg-yellow-500 text-gray-900 px-8 py-3 rounded-full hover:bg-yellow-600 transition duration-300 font-semibold">Book Your Stay</a>
+                </div>
+            </section>
+        );
+
+        // About Component
+        const About = () => (
+            <section id="about" className="py-20 bg-white">
+                <div className="container mx-auto px-4 text-center">
+                    <h2 className="text-4xl font-bold mb-6 fade-in">About Us</h2>
+                    <p className="text-lg mb-4 fade-in">Maa Bhagwati Hostel, run by <span className="font-semibold">Ajay Singh</span>, is the ultimate budget-friendly spot for students, travelers, and professionals. Our double sharing rooms foster a vibrant community, with single rooms available only by special consideration and availability. Enjoy high-speed Wi-Fi, RO water with a freezer, and delicious meals in a welcoming environment.</p>
+                    <p className="text-lg fade-in">Our goal? To make your stay affordable, comfortable, and unforgettable!</p>
+                </div>
+            </section>
+        );
+
+        // ParametricTable Component
+        const ParametricTable = () => (
+            <div className="overflow-x-auto fade-in">
+                <table className="rates-table w-full max-w-4xl mx-auto text-sm md:text-base">
+                    <thead>
+                        <tr>
+                            <th>Package</th>
+                            <th>Total Cost (Monthly)</th>
+                            <th>Room Rent</th>
+                            <th>Electricity Bill</th>
+                            <th>Mess Fee</th>
+                            <th>Bathroom Facility</th>
+                            <th>Room Type</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Basic Package</td>
+                            <td>₹5000</td>
+                            <td>₹1600</td>
+                            <td>₹100</td>
+                            <td>₹3300</td>
+                            <td>Public Toilet/Bathroom</td>
+                            <td>Double Sharing</td>
+                        </tr>
+                        <tr>
+                            <td>Premium Package</td>
+                            <td>₹5500</td>
+                            <td>₹2100</td>
+                            <td>₹100</td>
+                            <td>₹3300</td>
+                            <td>Private Attached Toilet/Bathroom</td>
+                            <td>Double Sharing</td>
+                        </tr>
+                        <tr>
+                            <td colSpan="7" className="text-left">
+                                <strong>Note:</strong> Single rooms may be allocated based on hostel owner’s consideration and room availability. Contact us for details.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        );
+
+        // Rooms Component
+        const Rooms = () => (
+            <section id="rooms" className="py-20 bg-gray-100">
+                <div className="container mx-auto px-4">
+                    <h2 className="text-4xl font-bold text-center mb-10 fade-in">Rooms & Meals</h2>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+                        {[
+                            { title: "Double Sharing Room", desc: "Cozy room shared with another student, including a bed, reck, study table", price: "See Rates Below", img: "https://images.unsplash.com/photo-1529699211952-734e80c4d42b" },
+                            { title: "Single Room", desc: "Private room for one, subject to owner approval and availability.", price: "See Rates Below", img: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267" },
+                            { title: "Meal Plans", desc: "Tasty veg meals to keep you fueled and happy. It includes breakfast, lunch, dinner.", price: "Included in Packages", img: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267" },
+                        ].map((item, index) => (
+                            <div key={index} className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition duration-300 fade-in">
+                                <img src={item.img} alt={item.title} className="w-full h-48 object-cover rounded-t-xl mb-4" />
+                                <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
+                                <p className="text-gray-600 mb-4">{item.desc}</p>
+                                <p className="font-bold text-yellow-600">{item.price}</p>
+                            </div>
+                        ))}
+                        <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition duration-300 fade-in">
+                            <h3 className="text-xl font-semibold mb-2">Amenities</h3>
+                            <ul className="list-disc list-inside text-gray-600">
+                                <li>High-speed Wi-Fi(4G + 5G)</li>
+                                <li>RO water with freezer</li>
+                                <li>24/7 security</li>
+                                <li>CCTV Survivelance</li>
+                                <li>Chill common areas</li>
+                                <li>wide Terrace</li>
+                                <li>Regular cleaning</li>
+                                <li>Power backup</li>
+                                <li>Parking space</li>
+                                <li>Close to public transport</li>
+                                <li>Nearby shopping and dining</li>
+                                <li>100mts distance from Dr. Shakuntala Misra National Rehabilitation University</li>
+                                <li>300mts distance from Rajkiya GB Pant Polytechnic Lucknow</li>
+                                <li>150mts distance from Para Police Station</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <h3 className="text-2xl font-semibold text-center mb-6 fade-in">Room Rates & Packages</h3>
+                    <ParametricTable />
+                    <div className="text-center mt-6 fade-in">
+                        <p className="text-lg font-semibold">Additional Charges:</p>
+                        <p>One-time Wi-Fi Access Fee: ₹200</p>
+                        <p>Refundable Security Deposit: ₹3000 (after 6 months)</p>
+                    </div>
+                </div>
+            </section>
+        );
+        // Add this component with other components (after Rooms, before Gallery)
+const MealPlanner = () => (
+    <section id="meals" className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+            <h2 className="text-4xl font-bold text-center mb-10 fade-in">Weekly Meal Planner</h2>
+            <p className="text-lg text-center mb-8 fade-in">Plan your week with our delicious and healthy meals!</p>
+            
+            <div className="overflow-x-auto rounded-lg shadow-lg fade-in">
+                <table className="min-w-full">
+                    <thead>
+                        <tr>
+                            <th className="bg-gray-900 text-white p-4">Day</th>
+                            <th className="bg-gray-900 text-white p-4">Breakfast</th>
+                            <th className="bg-gray-900 text-white p-4">Lunch</th>
+                            <th className="bg-gray-900 text-white p-4">Dinner</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {/* Keep all the meal rows from meal.html */}
+                        <tr className="bg-gray-50">
+                            <td className="font-medium p-4">Monday</td>
+                            <td className="p-4">Oatmeal with Fresh Fruits</td>
+                            <td className="p-4">Grilled Chicken Salad</td>
+                            <td className="p-4">Salmon with Quinoa</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td class="font-medium p-4">Tuesday</td>
+                            <td className="p-4">Scrambled Eggs with Sourdough Toast</td>
+                            <td className="p-4">Pasta with Marinara Sauce</td>
+                            <td className="p-4">Beef Tacos with Salsa</td>
+                        </tr>
+                        <tr class="bg-white">
+                            <td class="font-medium p-4">Wednesday</td>
+                            <td className="p-4">Greek Yogurt Parfait</td>
+                            <td className="p-4">Beef Stir-Fry with Veggies</td>
+                            <td className="p-4">Vegetable Lasagna</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td class="font-medium p-4">Thursday</td>
+                            <td className="p-4">Buttermilk Pancakes with Maple Syrup</td>
+                            <td className="p-4">Vegetable Curry with Basmati Rice</td>
+                            <td className="p-4">Grilled Pork Chops</td>
+                        </tr>
+                        <tr class="bg-white">
+                            <td class="font-medium p-4">Friday</td>
+                            <td className="p-4">Avocado Toast with Poached Eggs</td>
+                            <td className="p-4">Fish Tacos with Slaw</td>
+                            <td className="p-4">Chicken Alfredo Pasta</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td class="font-medium p-4">Saturday</td>
+                            <td className="p-4">Berry Smoothie Bowl</td>
+                            <td className="p-4">BBQ Chicken Wrap</td>
+                            <td className="p-4">Shrimp Fried Rice</td>
+                        </tr>
+                        <tr class="bg-white">
+                            <td class="font-medium p-4">Sunday</td>
+                            <td className="p-4">Belgian Waffles with Berries</td>
+                            <td className="p-4">Roast Lamb with Roasted Veggies</td>
+                            <td className="p-4">Homemade Pizza Night</td>
+                        </tr>
+                        {/* Add all other days... */}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+);
+
+        // Gallery Component
+        const Gallery = () => (
+            <section id="gallery" className="py-20 bg-white">
+                <div className="container mx-auto px-4">
+                    <h2 className="text-4xl font-bold text-center mb-10 fade-in">Photo Gallery</h2>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                        {[
+                            { src: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267", alt: "Common Area" },
+                            { src: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267", alt: "Single Room" },
+                            { src: "https://images.unsplash.com/photo-1529699211952-734e80c4d42b", alt: "Dormitory" },
+                            { src: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267", alt: "Dining Area" },
+                            { src: "https://images.unsplash.com/photo-1497366216548-37526070297c", alt: "Lounge" },
+                            { src: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267", alt: "Exterior" },
+                        ].map((img, index) => (
+                            <img key={index} src={img.src} alt={img.alt} className="gallery-img w-full h-64 object-cover rounded-xl fade-in" />
+                        ))}
+                    </div>
+                </div>
+            </section>
+        );
+
+        // Contact Component
+       const Contact = () => (
+    <section id="contact" className="py-20 bg-gray-900 text-white">
+        <div className="container mx-auto px-4">
+            <h2 className="text-4xl font-bold text-center mb-10 fade-in">Book Your Stay</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div className="fade-in">
+                    <h3 className="text-2xl font-semibold mb-4">Contact Information</h3>
+                    <p><strong>Owner:</strong> Ajay Singh</p>
+                    <p><strong>Email:</strong> contact@maabhagwatihostel.com</p>
+                    <p><strong>Phone:</strong> +91 9044706137</p>
+                    <p className="mb-4"><strong>Address:</strong> Maa Bhagwati Boys Hostel, Pataura mod, Prakash Lok Colony, Near Dr. Shakuntala Misra National Rehabilitation University, Lucknow, Uttar Pradesh, 226017</p>
+                    
+                    <div className="mt-6">
+                        <h4 className="font-semibold mb-2">Office Hours</h4>
+                        <p>Monday - Saturday: 9:00 AM - 9:00 PM</p>
+                        <p>Sunday: 10:00 AM - 11:00 PM</p>
+                    </div>
+
+                    <div className="mt-6">
+                        <h4 className="font-semibold mb-2">Stay Connected</h4>
+                        <div className="flex space-x-4 mt-2">
+                            <a href="https://www.instagram.com/ajay_raghuvansi/?utm_source=ig_web_button_share_sheet" className="text-yellow-400 hover:text-yellow-600 text-xl"><i className="fab fa-instagram"></i></a>
+                            <a href="whatsapp://send?text=Hello Bhaiya, Kya room available hai?&phone=+919044706137" className="text-yellow-400 hover:text-yellow-600 text-xl"><i className="fab fa-whatsapp"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div className="fade-in">
+                    <h3 className="text-2xl font-semibold mb-4">Online Booking Form</h3>
+                    <div className="bg-white p-1 rounded-lg">
+                        <iframe 
+                            src="https://docs.google.com/forms/d/e/1FAIpQLSc8UO6TxOuseazl9xc5rvjpV6bDaVrNy5QUyu52ptF-jnkUGA/viewform?embedded=true" 
+                            width="100%" 
+                            height="1369" 
+                            frameBorder="0" 
+                            marginHeight="0" 
+                            marginWidth="0"
+                            className="rounded-lg"
+                            title="Booking Form">
+                            Loading...
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+);
+
+        // Footer Component
+        const Footer = () => (
+            <footer className="bg-gray-900 text-white py-6">
+                <div className="container mx-auto px-4 text-center">
+                    <p className="fade-in">© 2025 Maa Bhagwati Hostel. All rights reserved.</p>
+                </div>
+            </footer>
+        );
+
+        // Main App Component
+        const App = () => {
+            useEffect(() => {
+                const handleScroll = () => {
+                    document.querySelectorAll('.fade-in').forEach((el) => {
+                        const rect = el.getBoundingClientRect();
+                        if (rect.top < window.innerHeight - 100) {
+                            el.classList.add('visible');
+                        }
+                    });
+                };
+                window.addEventListener('scroll', handleScroll);
+                handleScroll();
+                return () => window.removeEventListener('scroll', handleScroll);
+            }, []);
+
+            return (
+                <div>
+                    <Navbar />
+                    <Hero />
+                    <About />
+                    <Rooms />
+                    <MealPlanner />
+                    <Gallery />
+                    <Contact />
+                    <Footer />
+                </div>
+            );
+        };
+
+        ReactDOM.render(<App />, document.getElementById('root'));
+    </script>
+</body>
+</html>
