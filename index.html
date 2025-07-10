@@ -172,6 +172,15 @@
                             <td>Double Sharing</td>
                         </tr>
                         <tr>
+                            <td>Diamond Package</td>
+                            <td>₹-</td>
+                            <td>₹-</td>
+                            <td>₹--</td>
+                            <td>₹--</td>
+                            <td>Private Attached Toilet/Bathroom</td>
+                            <td>Non Sharing</td>
+                        </tr>
+                        <tr>
                             <td colSpan="7" className="text-left">
                                 <strong>Note:</strong> Single rooms may be allocated based on hostel owner’s consideration and room availability. Contact us for details.
                             </td>
@@ -188,9 +197,9 @@
                     <h2 className="text-4xl font-bold text-center mb-10 fade-in">Rooms & Meals</h2>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
                         {[
-                            { title: "Double Sharing Room", desc: "Cozy room shared with another student, including a bed, reck, study table", price: "See Rates Below", img: "https://images.unsplash.com/photo-1529699211952-734e80c4d42b" },
-                            { title: "Single Room", desc: "Private room for one, subject to owner approval and availability.", price: "See Rates Below", img: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267" },
-                            { title: "Meal Plans", desc: "Tasty veg meals to keep you fueled and happy. It includes breakfast, lunch, dinner.", price: "Included in Packages", img: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267" },
+                            { title: "Double Sharing Room", desc: "Cozy room shared with another student, including a bed, reck, study table", price: "See Rates Below", img: "https://images.unsplash.com/photo-1665337791340-f6cb071fc6c0?q=80&w=627&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
+                            { title: "Single Room", desc: "Private room for one, subject to owner approval and availability.", price: "See Rates Below", img: "https://images.unsplash.com/photo-1646136389698-970e8b7fc854?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
+                            { title: "Meal Plans", desc: "Tasty veg meals to keep you fueled and happy. It includes breakfast, lunch, dinner.", price: "Included in Packages", img: "https://images.unsplash.com/photo-1599250300435-b9693f21830d?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8bWVudXxlbnwwfHwwfHx8MA%3D%3D" },
                         ].map((item, index) => (
                             <div key={index} className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition duration-300 fade-in">
                                 <img src={item.img} alt={item.title} className="w-full h-48 object-cover rounded-t-xl mb-4" />
@@ -286,9 +295,9 @@ const MealPlanner = () => (
                         </tr>
                         <tr class="bg-white">
                             <td class="font-medium p-4">Sunday</td>
-                            <td className="p-4">Belgian Waffles with Berries</td>
-                            <td className="p-4">Roast Lamb with Roasted Veggies</td>
-                            <td className="p-4">Homemade Pizza Night</td>
+                            <td className="p-4">Samosa,Chai</td>
+                            <td className="p-4">Veg Biryani, Rayta</td>
+                            <td className="p-4">Paneer,Poodi,Kheer/sevai</td>
                         </tr>
                         {/* Add all other days... */}
                     </tbody>
@@ -305,12 +314,12 @@ const MealPlanner = () => (
                     <h2 className="text-4xl font-bold text-center mb-10 fade-in">Photo Gallery</h2>
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                         {[
-                            { src: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267", alt: "Common Area" },
-                            { src: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267", alt: "Single Room" },
-                            { src: "https://images.unsplash.com/photo-1529699211952-734e80c4d42b", alt: "Dormitory" },
-                            { src: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267", alt: "Dining Area" },
-                            { src: "https://images.unsplash.com/photo-1497366216548-37526070297c", alt: "Lounge" },
-                            { src: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267", alt: "Exterior" },
+                            { src: "https://images.unsplash.com/photo-1613902621852-af2e8d8365d2?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8Y29tbW9uJTIwYXJlYXxlbnwwfHwwfHx8MA%3D%3D", alt: "Common Area" },
+                            { src: "https://plus.unsplash.com/premium_photo-1743893928147-cd87fcef2d9d?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", alt: "Single Room" },
+                            { src: "https://images.unsplash.com/photo-1555930112-0159bcdc3fe5?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8ZG9ybWl0b3J5fGVufDB8fDB8fHww", alt: "Dormitory" },
+                            { src: "https://images.unsplash.com/photo-1593136596203-7212b076f4d2?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZGluaW5nJTIwYXJlYXxlbnwwfHwwfHx8MA%3D%3D", alt: "Dining Area" },
+                            { src: "https://images.unsplash.com/photo-1720609293116-152c3d1b40d1?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fGJveXMlMjBob3N0ZWwlMjBsb3VuZ2V8ZW58MHx8MHx8fDA%3D", alt: "Lounge" },
+                            { src: "https://images.unsplash.com/photo-1667495048393-0474d6579e8c?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGJveXMlMjBob3N0ZWwlMjBleHRlcmlvcnxlbnwwfHwwfHx8MA%3D%3D", alt: "Exterior" },
                         ].map((img, index) => (
                             <img key={index} src={img.src} alt={img.alt} className="gallery-img w-full h-64 object-cover rounded-xl fade-in" />
                         ))}
@@ -351,9 +360,9 @@ const MealPlanner = () => (
                     <h3 className="text-2xl font-semibold mb-4">Online Booking Form</h3>
                     <div className="bg-white p-1 rounded-lg">
                         <iframe 
-                            src="https://docs.google.com/forms/d/e/1FAIpQLSc8UO6TxOuseazl9xc5rvjpV6bDaVrNy5QUyu52ptF-jnkUGA/viewform?embedded=true" 
+                            src="https://docs.google.com/forms/d/e/1FAIpQLSen9v7nM9qGBTgJU7fl7erlWAYa6d3CEOVDjfNUOxTTJtRQMA/viewform?embedded=true" 
                             width="100%" 
-                            height="1369" 
+                            height="1470" 
                             frameBorder="0" 
                             marginHeight="0" 
                             marginWidth="0"
