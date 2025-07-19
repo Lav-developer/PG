@@ -74,6 +74,25 @@
         .rates-table tr:nth-child(even) {
             background-color: #f3f4f6;
         }
+        #rules {
+        background: #f8f8f8;
+        padding: 1.5rem;
+        /* border-radius: 8px; */
+        /* margin: 2rem 0; */
+        }
+
+        #rules h2 {
+        text-align: center;
+        font-size: 1.75rem;
+        margin-bottom: 1rem;
+        color: #333;
+        }
+        #rules li {
+        margin-bottom: 0.75rem;
+        line-height: 1.5;
+        text-align: center;
+        }
+
     </style>
 </head>
 <body>
@@ -98,7 +117,7 @@
                     </button>
                 </div>
                 <ul className={`md:flex space-x-8 ${isOpen ? 'block' : 'hidden'} md:block absolute md:static bg-gray-900 w-full md:w-auto left-0 md:left-auto md:top-auto top-16 p-4 md:p-0`}>
-                    {['Home', 'About', 'Rooms', 'Meals', 'Gallery', 'Contact'].map((item) => (
+                    {['Home', 'About', 'Rooms', 'Meals', 'Gallery','Rules', 'Contact'].map((item) => (
                         <li key={item} className="md:py-0 py-2">
                             <a 
                                 href={`#${item.toLowerCase()}`} 
@@ -121,7 +140,7 @@
                 <div className="bg-black bg-opacity-50 p-8 rounded-xl fade-in">
                     <h1 className="text-5xl font-extrabold mb-4">Maa Bhagwati Boys Hostel</h1>
                     <p className="text-xl mb-6">Cool, affordable double sharing rooms with Wi-Fi, RO water, and tasty meals!</p>
-                    <a href="#contact" className="bg-yellow-500 text-gray-900 px-8 py-3 rounded-full hover:bg-yellow-600 transition duration-300 font-semibold">Book Your Stay</a>
+                    <a href="https://forms.zohopublic.in/maabhagwatihostel1/form/BookingLead/formperma/P3AZS_gJHaZRyVvuzTcI93JsASTMS3tSnd3iP3-lLyY" className="bg-yellow-500 text-gray-900 px-8 py-3 rounded-full hover:bg-yellow-600 transition duration-300 font-semibold">Book Your Stay</a>
                 </div>
             </section>
         );
@@ -305,6 +324,24 @@ const MealPlanner = () => (
     </section>
 );
 
+const HostelRules = () => (
+    <section id="rules">
+  <h2>माँ भगवती हॉस्टल के नियम</h2>
+  <ul>
+    <li>1. सभी छात्रों को अनिवार्य किया जाता है कि छात्रावास में सफाई का विशेष ध्यान रखें।</li>
+    <li>2. सभी छात्रों को अनिवार्य किया जाता है कि रात्रि समय शाम 6:30 बजे से रात्रि 10:30 बजे तक छात्रावास से बाहर ना जाएँ।</li>
+    <li>3. छात्रावास का शुल्क आप 01 से 10 तारीख़ प्रति महीने जमा करें।</li>
+    <li>4. छात्रावास का मासिक शुल्क ₹3200 प्रति माह दिया गया है।</li>
+    <li>5. कृपया छात्रावास में शांति बनाए रखें।</li>
+    <li>6. छात्र द्वारा विद्युत् एवं अन्य उपकरण (टीवी, चार्जर, केटल आदि) पर 500 रुपए का जुर्माना एवं उपकरण जब्त लिया जाएगा।</li>
+    <li>7. छात्रावास का शुल्क 01 से 10 तारीख़ नहीं किए जाने पर आप पर 200 रुपए का जुर्माना लगेगा।</li>
+    <li>8. किसी भी छात्र को कोई दिक्कत होने पर मो० नं० –  9044706137, 6394214116 पर फोन कर अवगत करा सकते हैं।</li>
+    <li>9. किसी भी छात्र के कमरे में थाली, बर्तन पाए जाने पर 100 रुपए का जुर्माना लगेगा।</li>
+    <li>10. यदि कोई छात्र पूरा साल का पूरा पैसा एक साथ जमा करता है तो उसकी एक महीने की रहने या खाने का पैसा नहीं पहुंचेगा।</li>
+  </ul>
+</section>
+);
+
         // Gallery Component
         const Gallery = () => (
             <section id="gallery" className="py-20 bg-white">
@@ -330,7 +367,6 @@ const MealPlanner = () => (
        const Contact = () => (
     <section id="contact" className="py-20 bg-gray-900 text-white">
         <div className="container mx-auto px-4">
-            <h2 className="text-4xl font-bold text-center mb-10 fade-in">Book Your Stay</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
                 <div className="fade-in">
                     <h3 className="text-2xl font-semibold mb-4">Contact Information</h3>
@@ -354,23 +390,6 @@ const MealPlanner = () => (
                         </div>
                     </div>
                 </div>
-                
-                <div className="fade-in">
-                    <h3 className="text-2xl font-semibold mb-4">Online Booking Form</h3>
-                    <div className="bg-white p-1 rounded-lg">
-                        <iframe 
-                            src="https://docs.google.com/forms/d/e/1FAIpQLSen9v7nM9qGBTgJU7fl7erlWAYa6d3CEOVDjfNUOxTTJtRQMA/viewform?embedded=true" 
-                            width="100%" 
-                            height="1470" 
-                            frameBorder="0" 
-                            marginHeight="0" 
-                            marginWidth="0"
-                            className="rounded-lg"
-                            title="Booking Form">
-                            Loading...
-                        </iframe>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
@@ -384,6 +403,7 @@ const MealPlanner = () => (
                 </div>
             </footer>
         );
+        
 
         // Main App Component
         const App = () => {
@@ -408,6 +428,7 @@ const MealPlanner = () => (
                     <About />
                     <Rooms />
                     <MealPlanner />
+                    <HostelRules />
                     <Gallery />
                     <Contact />
                     <Footer />
@@ -417,5 +438,360 @@ const MealPlanner = () => (
 
         ReactDOM.render(<App />, document.getElementById('root'));
     </script>
+
+<!-- Zoho FOrms -->
+ <style>
+
+.zf_lB_Dimmer_709192{ 
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    background: rgb(0, 0, 0);
+    opacity: 0.8;
+    z-index: 10000000;
+}
+
+.zf_lB_Container_709192{
+	position: fixed;
+	background-color: white;
+	margin: 0;
+	margin-right: 0px;
+	padding: 0;
+	height: 2067px;
+	width:  70%;
+	top: 50%;
+	left: 50%;
+	margin-right: -50%;
+	transform: translate(-50%, -50%);
+	border: 7px solid none;
+	max-height: calc(100% - 60px);
+	z-index: 999999;
+	transition: height 0.5s ease;
+	outline : none;
+}
+
+p{
+margin-bottom: 10px;
+}
+
+.zf_lB_Wrapper_709192{
+	position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-left: 0;
+    margin-top: -180px;
+    z-index: 10000001;
+}
+
+.zf_main_id_709192{
+	height: calc(100% - 0px);
+	display: flex;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
+.zf_lb_closeform_709192 {
+    position: absolute;
+    right: -20px;
+    background: #2f2e2e;
+    padding: 0;
+    border-radius: 50%;
+    width: 34px;
+    height: 34px;
+    top: -15px;
+    cursor: pointer;
+    border: 2px solid #d9d9d9;
+}
+.zf_lb_closeform_709192:before, .zf_lb_closeform_709192:after {
+    position: absolute;
+    left: 16px;
+    content: ' ';
+    height: 19px;
+    width: 2px;
+    top: 7px;
+    background-color: #f7f7f7;
+}
+
+.zf_lb_closeform_709192:before {
+  transform: rotate(45deg);
+}
+.zf_lb_closeform_709192:after {
+  transform: rotate(-45deg);
+} 
+
+.fadeIn {
+-webkit-animation-name: fadeIn;
+animation-name: fadeIn;
+-webkit-animation-duration: 1s;
+animation-duration: 1s;
+-webkit-animation-fill-mode: both;
+animation-fill-mode: both;
+display: block !important;
+}
+@-webkit-keyframes fadeIn {
+0% {opacity: 0;}
+100% {opacity: 1;}
+}
+@keyframes fadeIn {
+0% {opacity: 0;}
+100% {opacity: 1;}
+} 
+
+
+@media screen and (min-device-width: 10px) and (max-device-width: 380px) {  
+   .zf_lB_Container_709192 {
+  width: 270px !important;
+} 
+}
+
+@media screen and (min-device-width: 360px) and (max-device-width: 480px) {  
+   .zf_lB_Container_709192 {
+  width: 350px !important;
+} 
+}
+
+@media screen and (min-device-width: 440px) and (max-device-width: 500px) {  
+   .zf_lB_Container_709192 {
+  width: 380px !important;
+} 
+}
+
+@media only screen  and (min-width:500px) and (max-width:600px)  {  
+ 	.zf_lB_Container_709192 {
+	width: 450px;
+ }
+}
+
+@media only screen  and (min-width:601px) and (max-width:700px)  {  
+ 	.zf_lB_Container_709192 {
+	width: 540px;
+ }
+}
+
+@media only screen  and (min-width:700px) and (max-width:800px)  { 
+.zf_lB_Container_709192 {
+	width: 650px;
+ }
+}
+
+@media screen and (min-device-width: 801px) and (max-device-width: 1268px) {  
+   .zf_lB_Container_709192 {
+  width: 750px !important;
+} 
+}
+
+</style>      
+
+
+<button id="zf_button_709192" style="display: none;">Form</button>
+
+
+
+<script type="text/javascript">(function() {
+	try{
+
+			if( document.readyState == "complete" ){ 
+				onloadActions_709192();
+			}  else {
+			  	window.addEventListener('load', function (){
+			  		onloadActions_709192();
+			  	}, false);
+			}
+
+			function onloadActions_709192(){
+				constructDiv_709192();
+				
+			}
+
+			function constructDiv_709192(){
+				var iframeDiv = document.createElement("div");
+				iframeDiv.setAttribute('id','P3AZS_gJHaZRyVvuzTcI93JsASTMS3tSnd3iP3-lLyY_709192');
+				iframeDiv.setAttribute('class','zf_main_id_709192');
+
+				var closeFormDiv = document.createElement("div");
+				closeFormDiv.setAttribute('id','deleteform_709192');
+				closeFormDiv.setAttribute('class','zf_lb_closeform_709192');
+				closeFormDiv.setAttribute('tabindex', 0);
+				
+
+				var containerDiv = document.createElement("div");
+				containerDiv.setAttribute('id','containerDiv_709192');
+				containerDiv.setAttribute('class','zf_lB_Container_709192 fadeIn');
+				containerDiv.appendChild(iframeDiv);
+				containerDiv.appendChild(closeFormDiv);
+				
+				var wrapperDiv = document.createElement("div");
+				wrapperDiv.setAttribute('class','zf_lB_Wrapper_709192');
+				wrapperDiv.appendChild(containerDiv);
+
+
+				var dimmerDiv = document.createElement("div");
+				dimmerDiv.setAttribute('class','zf_lB_Dimmer_709192');
+				dimmerDiv.setAttribute('elname','popup_box');
+
+				var mainDiv = document.createElement("div");
+				mainDiv.setAttribute('id','formsLightBox_709192');
+				mainDiv.style.display = "none";
+				mainDiv.appendChild(wrapperDiv);
+				mainDiv.appendChild(dimmerDiv);
+
+				document.body.appendChild(mainDiv);
+
+			}
+
+			function showZForm_709192(){
+				var iframe = document.getElementById("P3AZS_gJHaZRyVvuzTcI93JsASTMS3tSnd3iP3-lLyY_709192").getElementsByTagName("iframe")[0];
+				if(iframe == undefined ||iframe.length == 0){
+					loadZForm_709192();
+					
+				} 
+				document.getElementById("formsLightBox_709192").style.display = "block"; 
+				document.body.style.overflow = "hidden";
+				setTimeout(function() {
+				    var containerDiv = document.getElementById("containerDiv_709192");
+				    containerDiv.setAttribute('tabindex', '-1');
+				    containerDiv.focus();
+				}, 100);
+			}
+
+			function deleteZForm_709192() {
+				var divCont = document.getElementById("formsLightBox_709192");
+				divCont.style.display="none";
+				document.body.style.overflow = "";
+
+				var iframe = document.getElementById("P3AZS_gJHaZRyVvuzTcI93JsASTMS3tSnd3iP3-lLyY_709192").getElementsByTagName("iframe")[0];
+				iframe.remove();
+			}
+
+			function loadZForm_709192() {
+				var iframe = document.getElementById("P3AZS_gJHaZRyVvuzTcI93JsASTMS3tSnd3iP3-lLyY_709192").getElementsByTagName("iframe")[0];
+				if(iframe == undefined ||iframe.length == 0){
+					var f = document.createElement("iframe");
+					f.src = getsrcurlZForm_709192('https://forms.zohopublic.in/maabhagwatihostel1/form/BookingLead/formperma/P3AZS_gJHaZRyVvuzTcI93JsASTMS3tSnd3iP3-lLyY?zf_rszfm=1');
+				    
+					    f.setAttribute("allow","camera;");
+					
+					f.style.border="none";
+					f.style.minWidth="100%";
+					f.style.overflow="hidden";
+					var d = document.getElementById("P3AZS_gJHaZRyVvuzTcI93JsASTMS3tSnd3iP3-lLyY_709192");
+					d.appendChild(f);
+
+					var deleteForm = document.getElementById("deleteform_709192");
+					deleteForm.onclick =  deleteZForm_709192;
+					deleteForm.addEventListener("keydown", function (event) {
+						if (event.key === "Enter" || event.keyCode === 13 || event.key === " " || event.keyCode === 32) {
+							event.preventDefault();
+							deleteZForm_709192();
+						}
+					});
+
+					
+
+					window.addEventListener('message', function (){
+						var evntData = event.data;
+						if( evntData && evntData.constructor == String ){
+							var zf_ifrm_data = evntData.split("|");
+							if ( zf_ifrm_data.length == 2 || zf_ifrm_data.length == 3 ) {
+								var zf_perma = zf_ifrm_data[0];
+								var zf_ifrm_ht_nw = ( parseInt(zf_ifrm_data[1], 10) + 15 ) + "px";
+								var iframe = document.getElementById("P3AZS_gJHaZRyVvuzTcI93JsASTMS3tSnd3iP3-lLyY_709192").getElementsByTagName("iframe")[0];
+								if ( (iframe.src).indexOf('formperma') > 0 && (iframe.src).indexOf(zf_perma) > 0 ) {
+									var prevIframeHeight = iframe.style.height;
+
+									var zf_tout = false;
+									if( zf_ifrm_data.length == 3 ) {
+									    iframe.scrollIntoView();
+									    zf_tout = true;
+									}
+
+									if ( prevIframeHeight != zf_ifrm_ht_nw ) {
+										if( zf_tout ) {
+											setTimeout(function(){
+										        iframe.style.minHeight = zf_ifrm_ht_nw;
+												var containerDiv = document.getElementById("containerDiv_709192");
+												containerDiv.style.height=zf_ifrm_ht_nw;
+										    },500);
+										} else {
+										    iframe.style.minHeight = zf_ifrm_ht_nw;
+											var containerDiv = document.getElementById("containerDiv_709192");
+											containerDiv.style.height=zf_ifrm_ht_nw;
+										}
+									}
+								}
+							}
+						}
+
+					}, false);
+				}
+			}
+
+			
+
+			function getsrcurlZForm_709192(zf_src) {
+				try {
+					
+						if(zf_src.indexOf("?") == -1){
+							zf_src+="?zf_enablecamera=true"; // No I18N
+						} else {
+							zf_src+="&zf_enablecamera=true" // No I18N
+						}
+					
+					if ( typeof ZFAdvLead !== "undefined" && typeof zfutm_zfAdvLead !== "undefined" ) {
+						for( var prmIdx = 0 ; prmIdx < ZFAdvLead.utmPNameArr.length ; prmIdx ++ ) {
+				        	var utmPm = ZFAdvLead.utmPNameArr[ prmIdx ];
+				        	var utmVal = zfutm_zfAdvLead.zfautm_gC_enc( ZFAdvLead.utmPNameArr[ prmIdx ] );
+					        if ( typeof utmVal !== "undefined" ) {
+					          if ( utmVal != "" ){
+					            if(zf_src.indexOf('?') > 0){
+					              zf_src = zf_src+'&'+utmPm+'='+utmVal;//No I18N
+					            }else{
+					              zf_src = zf_src+'?'+utmPm+'='+utmVal;//No I18N
+					            }
+					          }
+					        }
+				      	}
+					}
+
+					if ( typeof ZFLead !== "undefined" && typeof zfutm_zfLead !== "undefined" ) {
+						for( var prmIdx = 0 ; prmIdx < ZFLead.utmPNameArr.length ; prmIdx ++ ) {
+				        	var utmPm = ZFLead.utmPNameArr[ prmIdx ];
+				        	var utmVal = zfutm_zfLead.zfutm_gC_enc( ZFLead.utmPNameArr[ prmIdx ] );
+					        if ( typeof utmVal !== "undefined" ) {
+					          if ( utmVal != "" ){
+					            if(zf_src.indexOf('?') > 0){
+					              zf_src = zf_src+'&'+utmPm+'='+utmVal;//No I18N
+					            }else{
+					              zf_src = zf_src+'?'+utmPm+'='+utmVal;//No I18N
+					            }
+					          }
+					        }
+				      	}
+					}
+				}catch(e){}
+				return zf_src;
+			}
+			
+			function scrollLoad_709192(){
+				    var scrollTop = window.scrollY;
+					var docHeight = document.body.offsetHeight
+					var winHeight = window.innerHeight;
+					var scrollPercent = (scrollTop) / (docHeight - winHeight);
+					var scrollPercentRounded = Math.round(scrollPercent*100);
+					if ( scrollPercentRounded > 90) {
+				         showZForm_709192();
+				         window.removeEventListener('scroll',scrollLoad_709192);
+					}
+			}
+
+			window.addEventListener('scroll', scrollLoad_709192);
+			
+			
+	}catch(e){}
+})();
+</script>		
+
 </body>
 </html>
