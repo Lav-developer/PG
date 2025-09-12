@@ -575,24 +575,8 @@
                             <td>Private Attached</td>
                             <td>Double Sharing</td>
                         </tr>
-                        <tr>
-                            <td className="font-semibold text-blue-600">Diamond Package</td>
-                            <td className="font-bold text-purple-600">Contact Us</td>
-                            <td>--</td>
-                            <td>--</td>
-                            <td>₹3,300</td>
-                            <td>Private Attached</td>
-                            <td>Single Room</td>
-                        </tr>
                     </tbody>
                 </table>
-                <div className="text-center mt-6 p-4 bg-yellow-50 rounded-xl border-l-4 border-yellow-400">
-                    <p className="text-sm text-gray-600">
-                        <i className="fas fa-info-circle mr-2 text-yellow-500"></i>
-                        <strong>Note:</strong> Single rooms are subject to availability and owner approval. 
-                        Annual payment gets you one month free!
-                    </p>
-                </div>
             </div>
         );
 
@@ -610,18 +594,18 @@
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
                         {[
                             { 
-                                title: "Double Sharing Room", 
+                                title: "Basic Package Room", 
                                 desc: "Comfortable shared accommodation with modern furnishing, study table, and personal storage space.", 
                                 price: "Starting from ₹5,000", 
                                 img: "/images/Room3.png",
                                 features: ["Study Table", "Personal Storage", "High-Speed WiFi", "24/7 Electricity"]
                             },
                             { 
-                                title: "Single Room", 
-                                desc: "Private room with complete privacy, perfect for focused study and personal space.", 
-                                price: "Contact for Pricing", 
+                                title: "Premium Package Room", 
+                                desc: "Private room with complete privacy, perfect for focused study and personal space.(Attached Bathroom)", 
+                                price: "Starting from ₹5,500", 
                                 img: "/images/Room1.jpg",
-                                features: ["Complete Privacy", "Attached Bathroom", "Premium Location", "Priority Service"]
+                                features: ["Complete Privacy", "Attached Bathroom", "Priority Service"]
                             },
                             { 
                                 title: "Premium Amenities", 
@@ -757,7 +741,7 @@
                                 "छात्रावास का शुल्क आप 01 से 10 तारीख़ प्रति महीने जमा करें।",
                                 "मेस (mess) का मासिक शुल्क ₹3300 प्रति माह है।",
                                 "कृपया छात्रावास में शांति बनाए रखें।",
-                                "विद्युत् एवं अन्य उपकरण (टीवी, केटल आदि) पर 500 रुपए का जुर्माना।",
+                                "विद्युत् उपकरण (टीवी, केटल आदि) पर 500 रुपए का जुर्माना।",
                                 "देर से शुल्क जमा करने पर 200 रुपए का जुर्माना लगेगा।",
                                 "समस्या के लिए संपर्क: 9044706137",
                                 "पूरा साल का पैसा एक साथ जमा करने पर एक महीने की छूट।"
@@ -824,13 +808,47 @@
                                         ))}
                                     </div>
                                     <p className="text-gray-600 leading-relaxed">"{testimonial.text}"</p>
+                                    
                                 </div>
+                                
                             ))}
                         </div>
+                        
                     </div>
+                    
                 </section>
+                
             );
+            
         };
+
+        const CommentsSection = () => (
+            <section id="comments" className="py-20 bg-gradient-to-br from-white to-blue-50">
+                <div className="container mx-auto px-4">
+                    <div className="comments-section max-w-4xl mx-auto">
+                        <h2 className="fade-in">Comments & Reviews</h2>
+                        <p className="text-center text-gray-600 mb-8 fade-in">
+                            Share your experience or ask questions about Maa Bhagwati Boys Hostel. Connect with current and former residents!
+                        </p>
+
+                        {/* Comments.app Widget Container */}
+                        <div className="fade-in bg-white p-6 rounded-2xl shadow-lg">
+                            <div id="comments-container">
+                                {/* The comments widget will be loaded here */}
+                            </div>
+                        </div>
+
+                        <div className="text-center mt-6 fade-in">
+                            <p className="text-sm text-gray-500">
+                                <i className="fas fa-info-circle mr-2"></i>
+                                Comments are powered by Telegram. You can join the discussion easily!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        );
+        
 
         // Enhanced Gallery Component
         const Gallery = () => (
