@@ -353,7 +353,7 @@
                             </button>
                         </div>
                         <ul className={`md:flex space-x-8 ${isOpen ? 'block' : 'hidden'} md:block absolute md:static bg-gray-900 md:bg-transparent w-full md:w-auto left-0 md:left-auto top-16 md:top-auto p-4 md:p-0 rounded-b-lg md:rounded-none`}>
-                            {['Home', 'About', 'Rooms', 'Meals', 'Gallery', 'Rules', 'Testimonials', 'Contact'].map((item) => (
+                            {['Home', 'About', 'Rooms', 'Meals', 'Gallery', 'Rules', 'Testimonials','Comments', 'Contact'].map((item) => (
                                 <li key={item} className="md:py-0 py-2">
                                     <a 
                                         href={`#${item.toLowerCase()}`} 
@@ -1037,6 +1037,7 @@
                     <HostelRules />
                     <Gallery />
                     <Testimonials />
+                    <CommentsSection />
                     <Contact />
                     <Footer />
                 </div>
