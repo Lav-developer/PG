@@ -1045,6 +1045,22 @@
         };
 
         ReactDOM.render(<App />, document.getElementById('root'));
+        // Load comments widget after React renders
+setTimeout(function() {
+    var commentsArea = document.getElementById('comments-area');
+    if (commentsArea) {
+        var script = document.createElement('script');
+        script.src = 'https://comments.app/js/widget.js?3';
+        script.setAttribute('data-comments-app-website', '80WSFqv4');
+        script.setAttribute('data-limit', '100');
+        script.setAttribute('data-color', '13B4C6');
+        script.setAttribute('data-dislikes', '1');
+        script.setAttribute('data-colorful', '1');
+        script.async = true;
+        commentsArea.appendChild(script);
+    }
+}, 2000);
+
     </script>
 
 <!-- Zoho Forms Integration (Preserved) -->
