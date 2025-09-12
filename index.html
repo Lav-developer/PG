@@ -316,9 +316,26 @@
     <!-- Scroll Progress Bar -->
     <div class="scroll-progress" id="scroll-progress"></div>
     
-    
+    <div id="root"></div>
 
-    
+    <section id="comments" style="padding:40px;background:#f9fafb">
+  <div style="max-width:800px;margin:0 auto;">
+    <h2>Comments & Reviews</h2>
+    <p>Share your experience or ask questions about Maa Bhagwati Boys Hostel. Connect with current and former residents!</p>
+    <!-- This is where the widget will render -->
+    <div id="comments-widget"></div>
+  </div>
+</section>
+
+<!-- comments.app Telegram Widget Script -->
+<script async
+        src="https://comments.app/js/widget.js?3"
+        data-comments-app-website="80WSFqv4"
+        data-limit="100"
+        data-color="13B4C6"
+        data-dislikes="1"
+        data-colorful="1">
+</script>
 
     <script type="text/babel">
         const { useState, useEffect, useRef } = React;
@@ -355,7 +372,7 @@
                             </button>
                         </div>
                         <ul className={`md:flex space-x-8 ${isOpen ? 'block' : 'hidden'} md:block absolute md:static bg-gray-900 md:bg-transparent w-full md:w-auto left-0 md:left-auto top-16 md:top-auto p-4 md:p-0 rounded-b-lg md:rounded-none`}>
-                            {['Home', 'About', 'Rooms', 'Meals', 'Gallery', 'Rules', 'Testimonials','Comments', 'Contact'].map((item) => (
+                            {['Home', 'About', 'Rooms', 'Meals', 'Gallery', 'Rules', 'Testimonials', 'Contact'].map((item) => (
                                 <li key={item} className="md:py-0 py-2">
                                     <a 
                                         href={`#${item.toLowerCase()}`} 
@@ -810,47 +827,13 @@
                                         ))}
                                     </div>
                                     <p className="text-gray-600 leading-relaxed">"{testimonial.text}"</p>
-                                    
                                 </div>
-                                
                             ))}
                         </div>
-                        
                     </div>
-                    
                 </section>
-                
             );
-            
         };
-
-        const CommentsSection = () => (
-            <section id="comments" className="py-20 bg-gradient-to-br from-white to-blue-50">
-                <div className="container mx-auto px-4">
-                    <div className="comments-section max-w-4xl mx-auto">
-                        <h2 className="fade-in">Comments & Reviews</h2>
-                        <p className="text-center text-gray-600 mb-8 fade-in">
-                            Share your experience or ask questions about Maa Bhagwati Boys Hostel. Connect with current and former residents!
-                        </p>
-
-                        {/* Comments.app Widget Container */}
-                        <div className="fade-in bg-white p-6 rounded-2xl shadow-lg">
-                            <div id="comments-container">
-                                {/* The comments widget will be loaded here */}
-                            </div>
-                        </div>
-
-                        <div className="text-center mt-6 fade-in">
-                            <p className="text-sm text-gray-500">
-                                <i className="fas fa-info-circle mr-2"></i>
-                                Comments are powered by Telegram. You can join the discussion easily!
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        );
-        
 
         // Enhanced Gallery Component
         const Gallery = () => (
@@ -867,7 +850,7 @@
                         {[
                             { src: "/images/Outside.png", alt: "Hostel Exterior", caption: "Modern Hostel Building" },
                             { src: "/images/Room3.png", alt: "Double Room", caption: "Comfortable Double Sharing Room" },
-                            { src: "/images/Room1.jpg", alt: "Single Room", caption: "Spacious Single Room" },
+                            { src: "/images/Room1.jpg", alt: "Single Room", caption: "Room with Attached bathroom" },
                             { src: "/images/Gallery.jpg", alt: "Common Area", caption: "Gallery" },
                             { src: "/images/Main-Door.png", alt: "Main Gate", caption: "Main Gate" }
                         ].map((img, index) => (
@@ -1039,7 +1022,6 @@
                     <HostelRules />
                     <Gallery />
                     <Testimonials />
-                    <CommentsSection />
                     <Contact />
                     <Footer />
                 </div>
@@ -1047,22 +1029,6 @@
         };
 
         ReactDOM.render(<App />, document.getElementById('root'));
-        // Load comments widget after React renders
-setTimeout(function() {
-    var commentsArea = document.getElementById('comments-area');
-    if (commentsArea) {
-        var script = document.createElement('script');
-        script.src = 'https://comments.app/js/widget.js?3';
-        script.setAttribute('data-comments-app-website', '80WSFqv4');
-        script.setAttribute('data-limit', '100');
-        script.setAttribute('data-color', '13B4C6');
-        script.setAttribute('data-dislikes', '1');
-        script.setAttribute('data-colorful', '1');
-        script.async = true;
-        commentsArea.appendChild(script);
-    }
-}, 2000);
-
     </script>
 
 <!-- Zoho Forms Integration (Preserved) -->
@@ -1411,29 +1377,7 @@ display: block !important;
 		
 	}catch(e){}
 })();
-</script>
-
-<div id="root"></div>
-
-<section id="comments" style="padding:40px;background:#f9fafb">
-  <div style="max-width:800px;margin:0 auto;">
-    <h2>Comments & Reviews</h2>
-    <p>Share your experience or ask questions about Maa Bhagwati Boys Hostel. Connect with current and former residents!</p>
-    <!-- This is where the widget will render -->
-    <div id="comments-widget"></div>
-  </div>
-</section>
-
-<!-- comments.app Telegram Widget Script -->
-<script async
-        src="https://comments.app/js/widget.js?3"
-        data-comments-app-website="80WSFqv4"
-        data-limit="100"
-        data-color="13B4C6"
-        data-dislikes="1"
-        data-colorful="1">
-</script>
+</script>		
 
 </body>
-
 </html>
