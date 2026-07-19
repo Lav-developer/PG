@@ -310,6 +310,19 @@
             z-index: 9999;
             transition: width 0.1s ease;
         }
+
+        /* Floating CTA Button */
+        .floating-cta {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); }
+        }
     </style>
 </head>
 <body>
@@ -317,12 +330,6 @@
     <div class="scroll-progress" id="scroll-progress"></div>
     
     <div id="root"></div>
-
-
-
-<!-- comments.app Telegram Widget Script -->
-<script async src="https://comments.app/js/widget.js?3" data-comments-app-website="80WSFqv4" data-limit="100" data-color="39C4E8" data-dislikes="1" data-colorful="1" data-dark="1"></script>
-
     <script type="text/babel">
         const { useState, useEffect, useRef } = React;
 
@@ -889,7 +896,7 @@
                                     <div className="flex items-center">
                                         <i className="fas fa-phone text-2xl text-yellow-400 mr-4 w-8"></i>
                                         <div>
-                                            <p className="font-semibold">Phone Numbers</p>
+                                            <p className="font-semibold">Phone Number</p>
                                             <p className="text-gray-300">+91 9956600995</p>
                                         </div>
                                     </div>
@@ -931,28 +938,10 @@
 
                         <div className="fade-in">
                             <div className="bg-white bg-opacity-10 backdrop-blur-sm p-8 rounded-2xl">
-                                <h3 className="text-3xl font-semibold mb-6 text-yellow-400">Quick Booking</h3>
-                                <p className="text-gray-300 mb-6">Ready to book your room? Click below to fill out our booking form and secure your spot today!</p>
-                                
-                                <div className="space-y-4 mb-8">
-                                    <div className="flex items-center p-4 bg-green-500 bg-opacity-20 rounded-lg">
-                                        <i className="fas fa-check-circle text-green-400 mr-3"></i>
-                                        <span>Instant Confirmation</span>
-                                    </div>
-                                    <div className="flex items-center p-4 bg-blue-500 bg-opacity-20 rounded-lg">
-                                        <i className="fas fa-shield-alt text-blue-400 mr-3"></i>
-                                        <span>Secure Payment Options</span>
-                                    </div>
-                                    <div className="flex items-center p-4 bg-purple-500 bg-opacity-20 rounded-lg">
-                                        <i className="fas fa-headset text-purple-400 mr-3"></i>
-                                        <span>24/7 Customer Support</span>
-                                    </div>
+                                <h3 className="text-3xl font-semibold mb-6 text-yellow-400">Find Us on Map</h3>
+                                <div className="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden shadow-2xl">
+                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3560.1344647356327!2d80.83099857533774!3d26.83567517669318!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399bffdace235ef3%3A0x81a35c383010a093!2sMaa%20Bhagwati%20hostel!5e0!3m2!1sen!2sin!4v1784456679221!5m2!1sen!2sin" width="100%" height="450%" style={{border:0}} allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
                                 </div>
-
-                                <p className="text-center text-gray-400 text-sm mt-4">
-                                    <i className="fas fa-clock mr-2"></i>
-                                    Booking takes less than 5 minutes
-                                </p>
                             </div>
                         </div>
                     </div>
@@ -963,15 +952,33 @@
         // Enhanced Footer Component
         const Footer = () => (
             <footer className="bg-gray-900 text-white py-12 border-t border-gray-800">
-                <div className="container mx-auto px-4">
-                    <div className="border-t border-gray-800 pt-8 text-center fade-in">
-                        <p className="text-gray-400">
-                            © 2025 Maa Bhagwati Boys Hostel. All rights reserved. | 
-                            <span className="text-yellow-400"> Made with ❤️ for our students</span>
+                <div className="container mx-auto px-4 text-center">
+                    <div className="fade-in">
+                        <p className="text-gray-400 mb-6">
+                            © 2025 Maa Bhagwati Boys Hostel. All rights reserved.
                         </p>
+                        <div className="border-t border-gray-700 pt-6">
+                            <p className="text-gray-500 text-sm">
+                                Website designed & developed by 
+                                <a href="https://lav-developer.netlify.app/" target="_blank" rel="noopener noreferrer" className="font-semibold text-blue-400 hover:text-blue-300 transition-colors mx-1">Lav Kush</a>.
+                                Looking for a website for your business? Contact:
+                                <a href="whatsapp://send?text=Hello Lav, We want website for our business. Can we discuss over it. referred>Maa-Bhagwati PG&phone=+916394214116" className="font-semibold text-green-400 hover:text-green-300 transition-colors ml-1">6394214116</a>
+                            </p>
+                        </div>
                     </div>
                 </div>
             </footer>
+        );
+
+        // Floating CTA Button
+        const FloatingCTA = () => (
+            <a 
+                href="whatsapp://send?text=Hello Bhaiya, Kya room available hai?&phone=+919956600995" 
+                className="floating-cta cta-button text-gray-900"
+                title="Book Now on WhatsApp"
+            >
+                <i className="fab fa-whatsapp text-2xl"></i>
+            </a>
         );
 
         // Main App Component with Enhanced Animations
@@ -1003,6 +1010,7 @@
                     <Gallery />
                     <Testimonials />
                     <Contact />
+                    <FloatingCTA />
                     <Footer />
                 </div>
             );
@@ -1010,354 +1018,6 @@
 
         ReactDOM.render(<App />, document.getElementById('root'));
     </script>
-
-<!-- Zoho Forms Integration (Preserved) -->
-<!-- <style>
-.zf_lB_Dimmer_709192{ 
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    right: 0px;
-    bottom: 0px;
-    background: rgb(0, 0, 0);
-    opacity: 0.8;
-    z-index: 10000000;
-}
-
-.zf_lB_Container_709192{
-	position: fixed;
-	background-color: white;
-	margin: 0;
-	margin-right: 0px;
-	padding: 0;
-	height: 2067px;
-	width:  70%;
-	top: 50%;
-	left: 50%;
-	margin-right: -50%;
-	transform: translate(-50%, -50%);
-	border: 7px solid none;
-	max-height: calc(100% - 60px);
-	z-index: 999999;
-	transition: height 0.5s ease;
-	outline : none;
-}
-
-p{
-margin-bottom: 10px;
-}
-
-.zf_lB_Wrapper_709192{
-	position: fixed;
-    top: 50%;
-    left: 50%;
-    margin-left: 0;
-    margin-top: -180px;
-    z-index: 10000001;
-}
-
-.zf_main_id_709192{
-	height: calc(100% - 0px);
-	display: flex;
-	overflow-y: auto;
-	overflow-x: hidden;
-}
-
-.zf_lb_closeform_709192 {
-    position: absolute;
-    right: -20px;
-    background: #2f2e2e;
-    padding: 0;
-    border-radius: 50%;
-    width: 34px;
-    height: 34px;
-    top: -15px;
-    cursor: pointer;
-    border: 2px solid #d9d9d9;
-}
-.zf_lb_closeform_709192:before, .zf_lb_closeform_709192:after {
-    position: absolute;
-    left: 16px;
-    content: ' ';
-    height: 19px;
-    width: 2px;
-    top: 7px;
-    background-color: #f7f7f7;
-}
-
-.zf_lb_closeform_709192:before {
-  transform: rotate(45deg);
-}
-.zf_lb_closeform_709192:after {
-  transform: rotate(-45deg);
-} 
-
-.fadeIn {
--webkit-animation-name: fadeIn;
-animation-name: fadeIn;
--webkit-animation-duration: 1s;
-animation-duration: 1s;
--webkit-animation-fill-mode: both;
-animation-fill-mode: both;
-display: block !important;
-}
-@-webkit-keyframes fadeIn {
-0% {opacity: 0;}
-100% {opacity: 1;}
-}
-@keyframes fadeIn {
-0% {opacity: 0;}
-100% {opacity: 1;}
-} 
-
-@media screen and (min-device-width: 10px) and (max-device-width: 380px) {  
-   .zf_lB_Container_709192 {
-  width: 270px !important;
-} 
-}
-
-@media screen and (min-device-width: 360px) and (max-device-width: 480px) {  
-   .zf_lB_Container_709192 {
-  width: 350px !important;
-} 
-}
-
-@media screen and (min-device-width: 440px) and (max-device-width: 500px) {  
-   .zf_lB_Container_709192 {
-  width: 380px !important;
-} 
-}
-
-@media only screen  and (min-width:500px) and (max-width:600px)  {  
- 	.zf_lB_Container_709192 {
-	width: 450px;
- }
-}
-
-@media only screen  and (min-width:601px) and (max-width:700px)  {  
- 	.zf_lB_Container_709192 {
-	width: 540px;
- }
-}
-
-@media only screen  and (min-width:700px) and (max-width:800px)  { 
-.zf_lB_Container_709192 {
-	width: 650px;
- }
-}
-
-@media screen and (min-device-width: 801px) and (max-device-width: 1268px) {  
-   .zf_lB_Container_709192 {
-  width: 750px !important;
-} 
-}
-</style>      
-
-<button id="zf_button_709192" style="display: none;">Form</button>
-
-<script type="text/javascript">(function() {
-	try{
-
-			if( document.readyState == "complete" ){ 
-				onloadActions_709192();
-			}  else {
-			  	window.addEventListener('load', function (){
-			  		onloadActions_709192();
-			  	}, false);
-			}
-
-			function onloadActions_709192(){
-				constructDiv_709192();
-				
-			}
-
-			function constructDiv_709192(){
-				var iframeDiv = document.createElement("div");
-				iframeDiv.setAttribute('id','P3AZS_gJHaZRyVvuzTcI93JsASTMS3tSnd3iP3-lLyY_709192');
-				iframeDiv.setAttribute('class','zf_main_id_709192');
-
-				var closeFormDiv = document.createElement("div");
-				closeFormDiv.setAttribute('id','deleteform_709192');
-				closeFormDiv.setAttribute('class','zf_lb_closeform_709192');
-				closeFormDiv.setAttribute('tabindex', 0);
-				
-
-				var containerDiv = document.createElement("div");
-				containerDiv.setAttribute('id','containerDiv_709192');
-				containerDiv.setAttribute('class','zf_lB_Container_709192 fadeIn');
-				containerDiv.appendChild(iframeDiv);
-				containerDiv.appendChild(closeFormDiv);
-				
-				var wrapperDiv = document.createElement("div");
-				wrapperDiv.setAttribute('class','zf_lB_Wrapper_709192');
-				wrapperDiv.appendChild(containerDiv);
-
-
-				var dimmerDiv = document.createElement("div");
-				dimmerDiv.setAttribute('class','zf_lB_Dimmer_709192');
-				dimmerDiv.setAttribute('elname','popup_box');
-
-				var mainDiv = document.createElement("div");
-				mainDiv.setAttribute('id','formsLightBox_709192');
-				mainDiv.style.display = "none";
-				mainDiv.appendChild(wrapperDiv);
-				mainDiv.appendChild(dimmerDiv);
-
-				document.body.appendChild(mainDiv);
-
-			}
-
-			function showZForm_709192(){
-				var iframe = document.getElementById("P3AZS_gJHaZRyVvuzTcI93JsASTMS3tSnd3iP3-lLyY_709192").getElementsByTagName("iframe")[0];
-				if(iframe == undefined ||iframe.length == 0){
-					loadZForm_709192();
-					
-				} 
-				document.getElementById("formsLightBox_709192").style.display = "block"; 
-				document.body.style.overflow = "hidden";
-				setTimeout(function() {
-				    var containerDiv = document.getElementById("containerDiv_709192");
-				    containerDiv.setAttribute('tabindex', '-1');
-				    containerDiv.focus();
-				}, 100);
-			}
-
-			function deleteZForm_709192() {
-				var divCont = document.getElementById("formsLightBox_709192");
-				divCont.style.display="none";
-				document.body.style.overflow = "";
-
-				var iframe = document.getElementById("P3AZS_gJHaZRyVvuzTcI93JsASTMS3tSnd3iP3-lLyY_709192").getElementsByTagName("iframe")[0];
-				iframe.remove();
-			}
-
-			function loadZForm_709192() {
-				var iframe = document.getElementById("P3AZS_gJHaZRyVvuzTcI93JsASTMS3tSnd3iP3-lLyY_709192").getElementsByTagName("iframe")[0];
-				if(iframe == undefined ||iframe.length == 0){
-					var f = document.createElement("iframe");
-					f.src = getsrcurlZForm_709192('https://forms.zohopublic.in/maabhagwatihostel1/form/RoomBooking/formperma/RoY4YUE1UiP5C-M6uYP8vOCm6jP8WnUnGUlYiUZn0Y4');
-				    
-					    f.setAttribute("allow","camera;");
-					
-					f.style.border="none";
-					f.style.minWidth="100%";
-					f.style.overflow="hidden";
-					var d = document.getElementById("P3AZS_gJHaZRyVvuzTcI93JsASTMS3tSnd3iP3-lLyY_709192");
-					d.appendChild(f);
-
-					var deleteForm = document.getElementById("deleteform_709192");
-					deleteForm.onclick =  deleteZForm_709192;
-					deleteForm.addEventListener("keydown", function (event) {
-						if (event.key === "Enter" || event.keyCode === 13 || event.key === " " || event.keyCode === 32) {
-							event.preventDefault();
-							deleteZForm_709192();
-						}
-					});
-
-					
-
-					window.addEventListener('message', function (){
-						var evntData = event.data;
-						if( evntData && evntData.constructor == String ){
-							var zf_ifrm_data = evntData.split("|");
-							if ( zf_ifrm_data.length == 2 || zf_ifrm_data.length == 3 ) {
-								var zf_perma = zf_ifrm_data[0];
-								var zf_ifrm_ht_nw = ( parseInt(zf_ifrm_data[1], 10) + 15 ) + "px";
-								var iframe = document.getElementById("P3AZS_gJHaZRyVvuzTcI93JsASTMS3tSnd3iP3-lLyY_709192").getElementsByTagName("iframe")[0];
-								if ( (iframe.src).indexOf('formperma') > 0 && (iframe.src).indexOf(zf_perma) > 0 ) {
-									var prevIframeHeight = iframe.style.height;
-
-									var zf_tout = false;
-									if( zf_ifrm_data.length == 3 ) {
-									    iframe.scrollIntoView();
-									    zf_tout = true;
-									}
-
-									if ( prevIframeHeight != zf_ifrm_ht_nw ) {
-										if( zf_tout ) {
-											setTimeout(function(){
-										        iframe.style.minHeight = zf_ifrm_ht_nw;
-												var containerDiv = document.getElementById("containerDiv_709192");
-												containerDiv.style.height=zf_ifrm_ht_nw;
-										    },500);
-										} else {
-										    iframe.style.minHeight = zf_ifrm_ht_nw;
-											var containerDiv = document.getElementById("containerDiv_709192");
-											containerDiv.style.height=zf_ifrm_ht_nw;
-										}
-									}
-								}
-							}
-						}
-
-					}, false);
-				}
-			}
-
-			
-
-			function getsrcurlZForm_709192(zf_src) {
-				try {
-					
-					if(zf_src.indexOf("?") == -1){
-						zf_src+="?zf_enablecamera=true"; // No I18N
-					} else {
-						zf_src+="&zf_enablecamera=true" // No I18N
-					}
-					
-				if ( typeof ZFAdvLead !== "undefined" && typeof zfutm_zfAdvLead !== "undefined" ) {
-					for( var prmIdx = 0 ; prmIdx < ZFAdvLead.utmPNameArr.length ; prmIdx ++ ) {
-			        	var utmPm = ZFAdvLead.utmPNameArr[ prmIdx ];
-			        	var utmVal = zfutm_zfAdvLead.zfautm_gC_enc( ZFAdvLead.utmPNameArr[ prmIdx ] );
-				        if ( typeof utmVal !== "undefined" ) {
-				          if ( utmVal != "" ){
-				            if(zf_src.indexOf('?') > 0){
-				              zf_src = zf_src+'&'+utmPm+'='+utmVal;//No I18N
-				            }else{
-				              zf_src = zf_src+'?'+utmPm+'='+utmVal;//No I18N
-				            }
-				          }
-				        }
-			      	}
-				}
-
-				if ( typeof ZFLead !== "undefined" && typeof zfutm_zfLead !== "undefined" ) {
-					for( var prmIdx = 0 ; prmIdx < ZFLead.utmPNameArr.length ; prmIdx ++ ) {
-			        	var utmPm = ZFLead.utmPNameArr[ prmIdx ];
-			        	var utmVal = zfutm_zfLead.zfutm_gC_enc( ZFLead.utmPNameArr[ prmIdx ] );
-				        if ( typeof utmVal !== "undefined" ) {
-				          if ( utmVal != "" ){
-				            if(zf_src.indexOf('?') > 0){
-				              zf_src = zf_src+'&'+utmPm+'='+utmVal;//No I18N
-				            }else{
-				              zf_src = zf_src+'?'+utmPm+'='+utmVal;//No I18N
-				            }
-				          }
-				        }
-			      	}
-				}
-			}catch(e){}
-			return zf_src;
-		}
-		
-		function scrollLoad_709192(){
-			    var scrollTop = window.scrollY;
-				var docHeight = document.body.offsetHeight
-				var winHeight = window.innerHeight;
-				var scrollPercent = (scrollTop) / (docHeight - winHeight);
-				var scrollPercentRounded = Math.round(scrollPercent*100);
-				if ( scrollPercentRounded > 90) {
-			         showZForm_709192();
-			         window.removeEventListener('scroll',scrollLoad_709192);
-				}
-		}
-
-		window.addEventListener('scroll', scrollLoad_709192);
-		
-		
-	}catch(e){}
-})();
-</script>		 -->
 
 </body>
 </html>
